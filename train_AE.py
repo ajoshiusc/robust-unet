@@ -155,7 +155,7 @@ valid_loss_list, train_loss_list= [], []
 for epoch in range(max_epochs):
     train_loss=0
     valid_loss=0
-    opt_enc=exp_lr_scheduler(opt_enc, epoch, lr_decay=0.1, lr_decay_epoch=10)
+    opt_enc=exp_lr_scheduler(opt_enc, epoch, lr_decay=0.1, lr_decay_epoch=15)
     for data in train_loader:
         batch_size = data.size()[0]
 
@@ -206,7 +206,7 @@ for epoch in range(max_epochs):
 
     #localtime = time.asctime( time.localtime(time.time()) )
     #D_real_list_np=(D_real_list).to('cpu')
-save_model(epoch, G.encoder, G.decoder)    
+save_model(epoch, G)    
 plt.plot(train_loss_list, label="train loss")
 plt.plot(valid_loss_list, label="validation loss")
 plt.legend()
